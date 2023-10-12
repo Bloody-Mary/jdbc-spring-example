@@ -38,4 +38,10 @@ public class BookRepositoryImpl implements BookRepository{
         }
         return result;
     }
+
+    private Book convertRowToBook(ResultSet resultSet) throws SQLException {
+        Long id = resultSet.getLong("id");
+        String name = resultSet.getString("name");
+        return new Book(id, name);
+    }
 }
