@@ -36,12 +36,6 @@ public class BookRepositoryImpl implements BookRepository{
         return result;
     }
 
-    private Book convertRowToBook(ResultSet resultSet) throws SQLException {
-        Long id = resultSet.getLong("id");
-        String name = resultSet.getString("name");
-        return new Book(id, name);
-    }
-
     @Override
     public Book findBookById(Long id) {
         String SQL_findBookById = "SELECT * FROM books WHERE id = ?";
@@ -58,5 +52,11 @@ public class BookRepositoryImpl implements BookRepository{
             throw new IllegalStateException(e);
         }
         return null;
+    }
+
+    private Book convertRowToBook(ResultSet resultSet) throws SQLException {
+        Long id = resultSet.getLong("id");
+        String name = resultSet.getString("name");
+        return new Book(id, name);
     }
 }
