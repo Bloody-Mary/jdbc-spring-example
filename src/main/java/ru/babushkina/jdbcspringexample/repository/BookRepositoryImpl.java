@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class BookRepositoryImpl implements BookRepository{
     @Autowired
-    private DataSource dataSource;
+    private final DataSource dataSource;
 
     public BookRepositoryImpl(DataSource dataSource) {
         this.dataSource = dataSource;
