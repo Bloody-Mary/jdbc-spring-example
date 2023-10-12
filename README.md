@@ -1,7 +1,7 @@
 Example of using Spring Boot and JDBC
 
 
-![image](https://github.com/Bloody-Mary/jdbc-spring-example/assets/37978402/f4387502-6eba-4fd8-819c-07f10da976a3)
+![image](https://github.com/Bloody-Mary/jdbc-spring-example/assets/37978402/5931255c-95a4-464b-acad-82b09e324408)
 
 ![image](https://github.com/Bloody-Mary/jdbc-spring-example/assets/37978402/d96f4cc7-5e5a-441d-80d8-1244a1823758)
 
