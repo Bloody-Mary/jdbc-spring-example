@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 import ru.babushkina.jdbcspringexample.model.Book;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,5 +25,17 @@ public class BookRepositoryImpl implements BookRepository{
     public List<Book> findAllBooks() {
         List<Book> result = new ArrayList<>();
         String SQL_findAllBooks = "SELECT * FROM books";
+
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(SQL_findAllBooks)) {
+            while (resultSet.next()) {
+                Book book = convertRowToBook(resultSet);
+                result.add(book);
+            }
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+        return result;
     }
 }
